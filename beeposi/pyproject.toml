@@ -1,0 +1,49 @@
+[tool.briefcase]
+project_name = "Bee Posi"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com/beeposi"
+license = "BSD license"
+author = 'Ava Fischer'
+author_email = "avagracefischer@gmail.com"
+
+[tool.briefcase.app.beeposi]
+formal_name = "Bee Posi"
+description = "My first application"
+icon = "src/beeposi/resources/beeposi"
+sources = ['src/beeposi']
+requires = []
+
+
+[tool.briefcase.app.beeposi.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.beeposi.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev20',
+]
+system_requires = [
+    'libgirepository1.0-dev',
+    'libcairo2-dev',
+    'libpango1.0-dev',
+    'libwebkitgtk-3.0-0',
+    'gir1.2-webkit-3.0',
+]
+
+[tool.briefcase.app.beeposi.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev20',
+]
+
+# Mobile deployments
+[tool.briefcase.app.beeposi.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.beeposi.android]
+requires = [
+    'toga-android>=0.3.0.dev20',
+]
