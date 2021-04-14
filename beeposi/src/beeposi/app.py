@@ -2,6 +2,7 @@
 My first application
 """
 import toga
+import time
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 
@@ -25,9 +26,20 @@ class BeePosi(toga.App):
             on_press=self.say_hello,
             style=Pack(padding=5)
         )
+        label2 = toga.Label("Welcome to Bee Posi!")
+        button2 = toga.Button(
+            "set 10 second timer",
+            on_press=self.countdown, 
+            style = Pack(padding=5)
+
+        )
+
+
+        main_box.add(label2)
 
         main_box.add(name_box)
         main_box.add(button)
+        main_box.add(button2)
 
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
@@ -35,5 +47,8 @@ class BeePosi(toga.App):
 
     def say_hello(self, widget):
         self.main_window.info_dialog("Hi,", self.name_input.value)
+    def countdown(self, widget):
+        time.sleep(10)
+        self.main_window.info_dialog("10 seconds have passed", self.name_input.value)
 def main():
     return BeePosi()
